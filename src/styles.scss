@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+h1, h2 {
+  margin: 1em 0 .5em;
+}
+
+app-root {
+  display: block;
+  width: 40vw;
+  min-width: 300px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+

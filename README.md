@@ -1,6 +1,10 @@
-# ComponentStoreWorkshop
+# Component Store Workshop
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+Companion project for the component store workshop that can be found here: https://docs.google.com/presentation/d/1zk8Yb9nJF-8HXq9B7Mi_A0Ilgv93mq8SdoT-qAGS6Po/edit?usp=sharing
+
+## Navigating the project
+
+The basic scaffolding will be in the main branch. You can follow along the workshop by checking out the project and work along or switch to a different branch to see the final implementation for reference.
 
 ## Development server
 

@@ -1,0 +1,25 @@
+.app-list-to-dos {
+  &__to-do {
+    display: flex;
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  &__to-do-title {
+    flex: 1 1 auto;
+    margin: 0;
+  }
+
+  &__to-do--checked &__to-do-title {
+    text-decoration: line-through;
+  }
+
+  &__delete-to-do {
+    visibility: hidden;
+  }
+
+  &__to-do:hover &__delete-to-do {
+    visibility: visible;
+  }
+
+}

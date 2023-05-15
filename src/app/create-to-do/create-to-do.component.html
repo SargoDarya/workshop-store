@@ -1,0 +1,7 @@
+<form class>
+  <input [formControl]="toDoFormControl" placeholder="Do something awesome today..." />
+
+  <button
+    [disabled]="toDoFormControl.invalid"
+    (click)="submitTodo(toDoFormControl.value!)">Add To Do</button>
+</form>

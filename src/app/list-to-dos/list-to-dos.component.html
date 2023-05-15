@@ -1,0 +1,16 @@
+<ng-container *ngIf="toDos?.length; else emptyTemplate">
+  <div
+      class="app-list-to-dos__to-do"
+      [ngClass]="{
+        'app-list-to-dos__to-do--checked': toDo.done
+      }"
+      *ngFor="let toDo of toDos">
+    <input type="checkbox" [checked]="toDo.done" (change)="toggleToDo.emit(toDo)" />
+    <p class="app-list-to-dos__to-do-title">{{toDo.title}}</p>
+    <button class="app-list-to-dos__delete-to-do" (click)="deleteToDo.emit(toDo)">Delete</button>
+  </div>
+</ng-container>
+
+<ng-template #emptyTemplate>
+  <ng-content></ng-content>
+</ng-template>
