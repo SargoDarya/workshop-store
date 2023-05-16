@@ -1,39 +1,47 @@
-import { Component } from '@angular/core';
+import { Component, importProvidersFrom } from '@angular/core';
 import { CreateToDoComponent } from './create-to-do/create-to-do.component';
 import { ListToDosComponent } from './list-to-dos/list-to-dos.component';
 import { ToDo } from './types';
 import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { Store, StoreModule } from '@ngrx/store';
+import { reducer } from './state/to-do-list.store';
+import { doneToDosSelector, openToDosSelector } from './state/to-do-list.selectors';
+import { actions } from './state/to-do-list.actions';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   standalone: true,
-  imports: [CommonModule, CreateToDoComponent, ListToDosComponent]
+  imports: [
+    CommonModule,
+    CreateToDoComponent,
+    ListToDosComponent,
+  ]
 })
 export class AppComponent {
   // Replace with proper selectors
-  public toDos$ = new BehaviorSubject<ToDo[]>([ { title: 'A ToDo not yet done', done: false } ]);
-  public doneToDos$ = new BehaviorSubject<ToDo[]>([ { title: 'A ToDo that is done', done: true } ]);
+  public openToDos$ = this.store.select(openToDosSelector);
+  public doneToDos$ = this.store.select(doneToDosSelector);
+
+  public constructor(
+    private readonly store: Store
+  ) {}
 
   public createToDo(title: string): void {
-    // TODO: Add Store calls
-    console.log('Create ToDo', title);
+    this.store.dispatch(actions.todoSubmitted({ title }))
   }
 
   public toggleToDo(toDo: ToDo): void {
-    // TODO: Add Store calls
-    console.log('Toggle ToDo', toDo);
+    this.store.dispatch(actions.todoToggled({ toDo }))
   }
 
   public deleteToDo(toDo: ToDo): void {
-    // TODO: Add Store calls
-    console.log('Delete ToDo', toDo);
+    this.store.dispatch(actions.todoDeleted({ toDo }))
   }
 
   public deleteDoneToDos(): void {
-    // TODO: Add Store calls
-    console.log('Delete done ToDos');
+    this.store.dispatch(actions.doneTodosDeleted())
   }
 
 }
