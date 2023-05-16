@@ -7,7 +7,7 @@ export interface ToDoListState {
   toDos: ToDo[]
 }
 
-const initialState = {
+const initialState: ToDoListState = {
   toDos: JSON.parse(localStorage.getItem('to-do-items') || '[]')
 };
 

@@ -4,6 +4,7 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { reducer } from "./state/to-do-list.store";
+import { ToDoListEffects } from "./state/to-do-list.effects";
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,6 +12,7 @@ export const appConfig: ApplicationConfig = {
       StoreModule.forRoot({}),
       StoreModule.forFeature('to-do-list', reducer),
       EffectsModule.forRoot([]),
+      EffectsModule.forFeature([ToDoListEffects]),
       StoreDevtoolsModule.instrument()
     )
   ]

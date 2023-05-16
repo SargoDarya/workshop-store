@@ -10,3 +10,11 @@ export const actions = createActionGroup({
     'Done ToDos deleted': emptyProps()
   }
 });
+
+export const apiActions = createActionGroup({
+  source: 'ToDo Api',
+  events: {
+    'Persisting success': emptyProps(),
+    'Persisting failed': emptyProps()
+  }
+});
